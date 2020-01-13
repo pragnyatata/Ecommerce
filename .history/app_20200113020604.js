@@ -5,9 +5,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const expressValidator = require("express-validator");
 require("dotenv").config();
-const authRoutes = require("./routes/auth");
-const userRoutes = require("./routes/user");
-const categoryRoutes = require("./routes/category");
+const authRoutes = require("./routes/users");
 const app = express();
 
 mongoose
@@ -22,8 +20,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(expressValidator());
 app.use("/api", authRoutes);
-app.use("/api", userRoutes);
-app.use("/api", categoryRoutes);
+
 const port = process.env.PORT || 8000;
 
 app.listen(port, () => {

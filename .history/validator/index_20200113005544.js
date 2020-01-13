@@ -1,4 +1,4 @@
-exports.userSignupValidator = (req, res, next) => {
+exports.userSignupValidator = (req, res) => {
   req.check("name", "Name is required").notEmpty();
   req
     .check("email", "Email must be a valid one")

@@ -55,12 +55,6 @@ userSchema.methods = {
         .createHmac("sha1", this.salt)
         .update(password)
         .digest("hex");
-    } catch (err) {
-      return;
     }
-  },
-  authenticate: function(plainText) {
-    return this.encryptPassword(plainText) === this.hashed_password;
   }
 };
-module.exports = mongoose.model("User", userSchema);
