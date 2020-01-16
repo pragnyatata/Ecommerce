@@ -7,8 +7,7 @@ const {
   categoryById,
   read,
   update,
-  remove,
-  list
+  remove
 } = require("../controllers/category");
 router.post(
   "/category/create/:userId",
@@ -17,7 +16,6 @@ router.post(
   isAdmin,
   create
 );
-router.get("/categories", list);
 router.get("/category/:categoryId", read);
 router.put(
   "/category/:categoryId/:userId",

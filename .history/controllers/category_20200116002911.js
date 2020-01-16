@@ -24,21 +24,6 @@ exports.remove = (req, res) => {
   category.remove((err, result) => {
     if (err || !category)
       return res.status(400).json({ error: "Category doesnt exist" });
-    res.json({ message: "Succefuly category deleted" });
-  });
-};
-exports.update = (req, res) => {
-  const category = req.category;
-  category.name = req.body.name;
-  category.save((err, data) => {
-    if (err) return res.status(400).json({ error: errorHandler(err) });
-    if (!data) return res.status(400).json({ error: "Category doesnt exist" });
-    res.json({ data });
-  });
-};
-exports.list = (req, res) => {
-  Category.find().exec((err, data) => {
-    if (err) return res.status(400).json({ error: errorHandler(err) });
-    res.json({ data });
+    res.json({ result });
   });
 };
